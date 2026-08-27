@@ -270,22 +270,22 @@ def main():
 
         # Determine status for logging and state
         if success:
-            status_lines.append(f"🟢 {message}")
+            status_lines.append(f"[GREEN] {message}")
             new_state[service_name] = "up"
         else:
-            status_lines.append(f"🔴 {message}")
+            status_lines.append(f"[RED] {message}")
             new_state[service_name] = "down"
-            alerts.append(f"🔴 <b>Service Down</b>: {message}")
+            alerts.append(f"[RED] <b>Service Down</b>: {message}")
 
         logger.info(message)
 
     # Build report
-    report = f"🩺 <b>Service Health Check</b> - {timestamp}\\n\\n" + "\\n".join(status_lines)
+    report = f"[HEALTH] <b>Service Health Check</b> - {timestamp}\\n\\n" + "\\n".join(status_lines)
     logger.info(f"\\n{report.replace('<b>', '').replace('</b>', '')}")
 
     # Send alerts if any
     if alerts:
-        alert_msg = f"🚨 <b>Service Alert!</b>\\n\\n" + "\\n\\n".join(alerts)
+        alert_msg = f"[ALERT] <b>Service Alert!</b>\\n\\n" + "\\n\\n".join(alerts)
         send_telegram_alert(alert_msg, config)
 
     # Save state
