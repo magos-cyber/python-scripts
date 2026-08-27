@@ -141,7 +141,7 @@ if __name__ == "__main__":
     bot = TelegramBot(BOT_TOKEN, CHAT_ID)
     
     # Send a test message
-    bot.send_message("🤖 <b>Bot Test</b>\n\nHello from python-scripts!")
+    bot.send_message("[BOT] <b>Bot Test</b>\n\nHello from python-scripts!")
     
     # Send a photo (uncomment if you have a photo)
     # bot.send_photo("/path/to/photo.jpg", caption="Test photo")
