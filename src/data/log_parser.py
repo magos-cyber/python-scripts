@@ -115,7 +115,7 @@ class LogParser:
     def generate_report(self) -> str:
         """Generate a summary report"""
         report = []
-        report.append(f"📊 Log Analysis Report")
+        report.append(f"[CHART] Log Analysis Report")
         report.append(f"{'='*50}")
         report.append(f"File: {self.log_path}")
         report.append(f"Total lines: {len(self.lines)}")
@@ -151,7 +151,7 @@ class LogParser:
         if hours:
             report.append("Hourly Distribution:")
             for hour, count in hours.items():
-                bar = '█' * min(count // 10, 50)
+                bar = '#' * min(count // 10, 50)
                 report.append(f"  {hour:02d}:00 | {bar} ({count})")
         
         return '\n'.join(report)
