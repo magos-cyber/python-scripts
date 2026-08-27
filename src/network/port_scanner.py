@@ -111,7 +111,7 @@ def main():
         ports = [int(p) for p in args.ports.split(",") if p.strip()]
     
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    results_text = f"🔍 <b>Port Scan Results</b> - {timestamp}\n\n"
+    results_text = f"[SEARCH] <b>Port Scan Results</b> - {timestamp}\n\n"
     
     if args.host:
         # Scan single host
@@ -123,7 +123,7 @@ def main():
             results_text += f"<b>Open ports:</b>\n"
             for port, _ in sorted(open_ports.items()):
                 service = COMMON_PORTS.get(port, "unknown")
-                results_text += f"  ✅ {port} ({service})\n"
+                results_text += f"  [OK] {port} ({service})\n"
         else:
             results_text += "No open ports found.\n"
     
@@ -137,7 +137,7 @@ def main():
                 results_text += f"\n<b>{host}:</b>\n"
                 for port, _ in sorted(open_ports.items()):
                     service = COMMON_PORTS.get(port, "unknown")
-                    results_text += f"  ✅ {port} ({service})\n"
+                    results_text += f"  [OK] {port} ({service})\n"
         else:
             results_text += "No hosts with open ports found.\n"
     
