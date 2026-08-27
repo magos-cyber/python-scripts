@@ -163,10 +163,10 @@ def main():
     unhealthy = monitor.check_health()
     
     if unhealthy:
-        message = f"🐳 <b>Docker Alert</b> - {timestamp}\n\n"
+        message = f"[DOCKER] <b>Docker Alert</b> - {timestamp}\n\n"
         message += f"<b>{len(unhealthy)} container(s) unhealthy:</b>\n"
         for c in unhealthy:
-            message += f"  ❌ {c['name']}: {c['state']} ({c['status']})\n"
+            message += f"  [FAIL] {c['name']}: {c['state']} ({c['status']})\n"
         
         logger.warning(message.replace("<b>", "").replace("</b>", ""))
         
