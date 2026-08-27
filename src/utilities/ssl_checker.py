@@ -69,16 +69,16 @@ class SSLChecker:
         
         if days <= critical_days:
             status = "critical"
-            emoji = "🔴"
+            emoji = "[RED]"
         elif days <= warning_days:
             status = "warning"
-            emoji = "🟡"
+            emoji = "[YELLOW]"
         elif days < 0:
             status = "expired"
-            emoji = "❌"
+            emoji = "[FAIL]"
         else:
             status = "ok"
-            emoji = "🟢"
+            emoji = "[GREEN]"
         
         return {
             "domain": domain,
@@ -113,10 +113,10 @@ def main():
         import json
         print(json.dumps(results, indent=2))
     else:
-        print(f"🔒 SSL Certificate Check")
+        print(f"[LOCK] SSL Certificate Check")
         print(f"{'='*50}")
         for r in results:
-            status_emoji = r.get("emoji", "❓")
+            status_emoji = r.get("emoji", "[QUESTION]")
             domain = r["domain"]
             
             if r["status"] == "error":
