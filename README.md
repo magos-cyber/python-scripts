@@ -2,23 +2,23 @@
 
 Α collection of useful Python scripts organized by category — automation, monitoring, APIs, utilities. All scripts are standalone, well-documented, and ready to use.
 
-## 📁 Structure
+## [FOLDER] Structure
 
 ```
 python-scripts/
-├── src/
-│ ├── automation/ # Backup manager, task automation
-│ ├── monitoring/ # System monitoring, Docker monitoring
-│ ├── api/ # Telegram bot, Home Assistant client
-│ ├── network/ # Port scanner, speed test
-│ ├── utilities/ # File organizer, log analyzer, SSL checker, weather
-│ └── data/ # Data processing scripts
-├── tests/ # Unit tests
-├── config/ # Configuration files
-└── docs/ # Documentation
++-- src/
+| +-- automation/ # Backup manager, task automation
+| +-- monitoring/ # System monitoring, Docker monitoring
+| +-- api/ # Telegram bot, Home Assistant client
+| +-- network/ # Port scanner, speed test
+| +-- utilities/ # File organizer, log analyzer, SSL checker, weather
+| `-- data/ # Data processing scripts
++-- tests/ # Unit tests
++-- config/ # Configuration files
+`-- docs/ # Documentation
 ```
 
-## 🚀 Quick Start
+## [ROCKET] Quick Start
 
 ```bash
 # Clone the repo
@@ -62,30 +62,30 @@ python3 src/utilities/weather.py
 python3 src/automation/backup_manager.py
 ```
 
-## 📝 Contents
+## [MEMO] Contents
 
-### 🔧 Automation
+### [WRENCH] Automation
 - **`src/automation/backup_manager.py`** — Automated backup manager with rotation, compression, and restore capabilities. Supports manifest tracking and integrity verification.
 
-### 📊 Monitoring
+### [CHART] Monitoring
 - **`src/monitoring/system_monitor.py`** — System resource monitor (CPU, memory, disk) with Telegram alerts. State-aware to avoid duplicate notifications.
 - **`src/monitoring/docker_monitor.py`** — Monitor Docker containers via Unix socket. Tracks container health, resource usage, and restart events.
 
-### 🤖 API Clients
+### [BOT] API Clients
 - **`src/api/telegram_bot.py`** — Telegram Bot API wrapper. Send messages, photos, and documents with a simple interface.
 - **`src/api/home_assistant.py`** — Home Assistant REST API client. Control entities, call services, and monitor states.
 
-### 🌐 Network
+### [GLOBE] Network
 - **`src/network/port_scanner.py`** — Multi-threaded TCP port scanner with common homelab ports preset. Supports single host and network scanning.
 - **`src/network/speedtest.py`** — Internet speed test using speedtest.net infrastructure. Measures download, upload, and ping.
 
-### 🛠️ Utilities
+### [TOOLS] Utilities
 - **`src/utilities/file_organizer.py`** — Organize files by type or date. Supports dry-run mode and duplicate handling.
 - **`src/utilities/log_analyzer.py`** — Parse and analyze log files. Extracts patterns, counts errors, and generates summary reports.
 - **`src/utilities/ssl_checker.py`** — Check SSL certificate expiration dates. Monitors domains and alerts when certificates are about to expire.
 - **`src/utilities/weather.py`** — Get current weather from Open-Meteo API (no API key required).
 
-## ⚙️ Configuration
+## [GEAR] Configuration
 
 Most scripts work out of the box with sensible defaults. For Telegram alerts, edit the config dictionary at the top of each script:
 
@@ -101,20 +101,20 @@ CONFIG = {
 
 Or create a config file at `/etc/python-scripts/<script-name>.json` to override defaults.
 
-## 🔑 Getting a Telegram Bot Token
+## [KEY] Getting a Telegram Bot Token
 
 1. Message [@BotFather](https://t.me/botfather) on Telegram
 2. Send `/newbot` and follow the instructions
 3. Copy the token and use it in your scripts
 4. Get your chat ID by messaging [@userinfobot](https://t.me/userinfobot)
 
-## 🏠 Home Assistant Token
+## [HOME] Home Assistant Token
 
 1. Go to your HA profile (bottom left)
 2. Scroll to "Long-Lived Access Tokens"
 3. Create a token and copy it
 
-## 🤝 Contributing
+## [HANDSHAKE] Contributing
 
 Contributions are welcome! Please:
 - Keep scripts in English
@@ -122,6 +122,6 @@ Contributions are welcome! Please:
 - Use only Python stdlib (no external dependencies)
 - Test before submitting
 
-## 📜 License
+## [SCROLL] License
 
 MIT License — see (LICENSE) for details.
