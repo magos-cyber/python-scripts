@@ -170,30 +170,30 @@ def main():
     # Check CPU
     cpu_percent = get_cpu_usage()
     if cpu_percent >= config["thresholds"]["cpu_critical"]:
-        status_lines.append(f"🔴 CPU: {cpu_percent}% (CRITICAL)")
-        alerts.append(f"🔴 <b>CPU CRITICAL</b>: {cpu_percent}%")
+        status_lines.append(f"[RED] CPU: {cpu_percent}% (CRITICAL)")
+        alerts.append(f"[RED] <b>CPU CRITICAL</b>: {cpu_percent}%")
         new_state["cpu"] = "critical"
     elif cpu_percent >= config["thresholds"]["cpu_warning"]:
-        status_lines.append(f"🟡 CPU: {cpu_percent}% (WARNING)")
-        alerts.append(f"🟡 <b>CPU WARNING</b>: {cpu_percent}%")
+        status_lines.append(f"[YELLOW] CPU: {cpu_percent}% (WARNING)")
+        alerts.append(f"[YELLOW] <b>CPU WARNING</b>: {cpu_percent}%")
         new_state["cpu"] = "warning"
     else:
-        status_lines.append(f"🟢 CPU: {cpu_percent}%")
+        status_lines.append(f"[GREEN] CPU: {cpu_percent}%")
         new_state["cpu"] = "ok"
 
     # Check Memory
     memory = get_memory_usage()
     if "error" not in memory:
         if memory["percent"] >= config["thresholds"]["memory_critical"]:
-            status_lines.append(f"🔴 Memory: {memory['percent']}% (CRITICAL)")
-            alerts.append(f"🔴 <b>MEMORY CRITICAL</b>: {memory['percent']}% ({memory['used_gb']}/{memory['total_gb']}GB)")
+            status_lines.append(f"[RED] Memory: {memory['percent']}% (CRITICAL)")
+            alerts.append(f"[RED] <b>MEMORY CRITICAL</b>: {memory['percent']}% ({memory['used_gb']}/{memory['total_gb']}GB)")
             new_state["memory"] = "critical"
         elif memory["percent"] >= config["thresholds"]["memory_warning"]:
-            status_lines.append(f"🟡 Memory: {memory['percent']}% (WARNING)")
-            alerts.append(f"🟡 <b>MEMORY WARNING</b>: {memory['percent']}% ({memory['used_gb']}/{memory['total_gb']}GB)")
+            status_lines.append(f"[YELLOW] Memory: {memory['percent']}% (WARNING)")
+            alerts.append(f"[YELLOW] <b>MEMORY WARNING</b>: {memory['percent']}% ({memory['used_gb']}/{memory['total_gb']}GB)")
             new_state["memory"] = "warning"
         else:
-            status_lines.append(f"🟢 Memory: {memory['percent']}%")
+            status_lines.append(f"[GREEN] Memory: {memory['percent']}%")
             new_state["memory"] = "ok"
 
     # Check Disk
@@ -205,24 +205,24 @@ def main():
             continue
         
         if usage["percent"] >= config["thresholds"]["disk_critical"]:
-            status_lines.append(f"🔴 Disk {path}: {usage['percent']}% (CRITICAL)")
-            alerts.append(f"🔴 <b>DISK CRITICAL</b> - {path}: {usage['percent']}% ({usage['free_gb']}GB free)")
+            status_lines.append(f"[RED] Disk {path}: {usage['percent']}% (CRITICAL)")
+            alerts.append(f"[RED] <b>DISK CRITICAL</b> - {path}: {usage['percent']}% ({usage['free_gb']}GB free)")
             new_state[f"disk_{path}"] = "critical"
         elif usage["percent"] >= config["thresholds"]["disk_warning"]:
-            status_lines.append(f"🟡 Disk {path}: {usage['percent']}% (WARNING)")
-            alerts.append(f"🟡 <b>DISK WARNING</b> - {path}: {usage['percent']}% ({usage['free_gb']}GB free)")
+            status_lines.append(f"[YELLOW] Disk {path}: {usage['percent']}% (WARNING)")
+            alerts.append(f"[YELLOW] <b>DISK WARNING</b> - {path}: {usage['percent']}% ({usage['free_gb']}GB free)")
             new_state[f"disk_{path}"] = "warning"
         else:
-            status_lines.append(f"🟢 Disk {path}: {usage['percent']}%")
+            status_lines.append(f"[GREEN] Disk {path}: {usage['percent']}%")
             new_state[f"disk_{path}"] = "ok"
 
     # Build report
-    report = f"📊 <b>System Monitor</b> - {timestamp}\n\n" + "\n".join(status_lines)
+    report = f"[CHART] <b>System Monitor</b> - {timestamp}\n\n" + "\n".join(status_lines)
     logger.info(f"\n{report.replace('<b>', '').replace('</b>', '')}")
 
     # Send alerts if any
     if alerts:
-        alert_msg = f"🚨 <b>System Alert!</b>\n\n" + "\n\n".join(alerts)
+        alert_msg = f"[ALERT] <b>System Alert!</b>\n\n" + "\n\n".join(alerts)
         send_telegram_alert(alert_msg, config)
 
     # Save state
