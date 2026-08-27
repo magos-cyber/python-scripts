@@ -7,15 +7,15 @@
 ```
 python-scripts/
 ├── src/
-│   ├── automation/     # Backup manager, task automation
-│   ├── monitoring/     # System monitoring, Docker monitoring
-│   ├── api/            # Telegram bot, Home Assistant client
-│   ├── network/        # Port scanner, speed test
-│   ├── utilities/      # File organizer, log analyzer, SSL checker, weather
-│   └── data/           # Data processing scripts
-├── tests/              # Unit tests
-├── config/             # Configuration files
-└── docs/               # Documentation
+│ ├── automation/ # Backup manager, task automation
+│ ├── monitoring/ # System monitoring, Docker monitoring
+│ ├── api/ # Telegram bot, Home Assistant client
+│ ├── network/ # Port scanner, speed test
+│ ├── utilities/ # File organizer, log analyzer, SSL checker, weather
+│ └── data/ # Data processing scripts
+├── tests/ # Unit tests
+├── config/ # Configuration files
+└── docs/ # Documentation
 ```
 
 ## 🚀 Quick Start
@@ -91,11 +91,11 @@ Most scripts work out of the box with sensible defaults. For Telegram alerts, ed
 
 ```python
 CONFIG = {
-    "telegram": {
-        "enabled": True,
-        "bot_token": "YOUR_BOT_TOKEN",
-        "chat_id": "YOUR_CHAT_ID"
-    }
+ "telegram": {
+ "enabled": True,
+ "bot_token": "YOUR_BOT_TOKEN",
+ "chat_id": "YOUR_CHAT_ID"
+ }
 }
 ```
 
@@ -124,4 +124,4 @@ Contributions are welcome! Please:
 
 ## 📜 License
 
-MIT License — see [LICENSE](LICENSE) for details.
+MIT License — see (LICENSE) for details.
