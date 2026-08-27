@@ -83,7 +83,7 @@ def main():
     if args.json:
         print(json.dumps(weather, indent=2))
     else:
-        print(f"🌤️  Current Weather")
+        print(f"[WEATHER]  Current Weather")
         print(f"{'='*40}")
         print(f"Condition: {weather['condition']}")
         print(f"Temperature: {weather['temperature']}{weather['temperature_unit']}")
