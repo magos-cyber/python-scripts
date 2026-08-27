@@ -95,7 +95,7 @@ def main():
     parser.add_argument("--pin-length", type=int, default=6, help="PIN length")
     args = parser.parse_args()
     
-    print(f"🔐 Password Generator")
+    print(f"[LOCK_KEY] Password Generator")
     print(f"{'='*50}\n")
     
     if args.pin:
