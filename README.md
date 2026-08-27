@@ -8,10 +8,10 @@
 python-scripts/
 ├── src/
 │   ├── automation/     # Backup manager, task automation
-│   ├── monitoring/     # System monitoring with alerts
+│   ├── monitoring/     # System monitoring, Docker monitoring
 │   ├── api/            # Telegram bot, Home Assistant client
-│   ├── network/        # Port scanner, network tools
-│   ├── utilities/      # File organizer, misc tools
+│   ├── network/        # Port scanner, speed test
+│   ├── utilities/      # File organizer, log analyzer, SSL checker, weather
 │   └── data/           # Data processing scripts
 ├── tests/              # Unit tests
 ├── config/             # Configuration files
@@ -31,6 +31,9 @@ cd python-scripts
 # System Monitor
 python3 src/monitoring/system_monitor.py
 
+# Docker Monitor
+python3 src/monitoring/docker_monitor.py
+
 # Telegram Bot
 python3 src/api/telegram_bot.py
 
@@ -40,8 +43,20 @@ python3 src/api/home_assistant.py
 # Port Scanner
 python3 src/network/port_scanner.py --host 192.168.1.1
 
+# Speed Test
+python3 src/network/speedtest.py
+
 # File Organizer
 python3 src/utilities/file_organizer.py ~/Downloads --by type
+
+# Log Analyzer
+python3 src/utilities/log_analyzer.py /var/log/syslog --report
+
+# SSL Checker
+python3 src/utilities/ssl_checker.py google.com github.com
+
+# Weather
+python3 src/utilities/weather.py
 
 # Backup Manager
 python3 src/automation/backup_manager.py
@@ -54,6 +69,7 @@ python3 src/automation/backup_manager.py
 
 ### 📊 Monitoring
 - **`src/monitoring/system_monitor.py`** — System resource monitor (CPU, memory, disk) with Telegram alerts. State-aware to avoid duplicate notifications.
+- **`src/monitoring/docker_monitor.py`** — Monitor Docker containers via Unix socket. Tracks container health, resource usage, and restart events.
 
 ### 🤖 API Clients
 - **`src/api/telegram_bot.py`** — Telegram Bot API wrapper. Send messages, photos, and documents with a simple interface.
@@ -61,9 +77,13 @@ python3 src/automation/backup_manager.py
 
 ### 🌐 Network
 - **`src/network/port_scanner.py`** — Multi-threaded TCP port scanner with common homelab ports preset. Supports single host and network scanning.
+- **`src/network/speedtest.py`** — Internet speed test using speedtest.net infrastructure. Measures download, upload, and ping.
 
 ### 🛠️ Utilities
 - **`src/utilities/file_organizer.py`** — Organize files by type or date. Supports dry-run mode and duplicate handling.
+- **`src/utilities/log_analyzer.py`** — Parse and analyze log files. Extracts patterns, counts errors, and generates summary reports.
+- **`src/utilities/ssl_checker.py`** — Check SSL certificate expiration dates. Monitors domains and alerts when certificates are about to expire.
+- **`src/utilities/weather.py`** — Get current weather from Open-Meteo API (no API key required).
 
 ## ⚙️ Configuration
 
