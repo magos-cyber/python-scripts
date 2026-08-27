@@ -164,7 +164,7 @@ def main():
         include_forks=args.forks
     )
     
-    print(f"\n📦 Backup Complete")
+    print(f"\n[PACKAGE] Backup Complete")
     print(f"{'='*40}")
     print(f"Total: {results['total']}")
     print(f"Success: {results['success']}")
