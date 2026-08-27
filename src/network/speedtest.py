@@ -148,7 +148,7 @@ def main():
     if args.json:
         print(json.dumps(results, indent=2))
     else:
-        print(f"🚀 Speed Test Results")
+        print(f"[ROCKET] Speed Test Results")
         print(f"{'='*40}")
         print(f"Server: {results['server']}")
         print(f"Ping: {results['ping_ms']}ms")
@@ -156,7 +156,7 @@ def main():
         print(f"Upload: {results['upload_mbps']} Mbps")
     
     if args.telegram:
-        message = f"🚀 <b>Speed Test</b>\n\n"
+        message = f"[ROCKET] <b>Speed Test</b>\n\n"
         message += f"Server: {results['server']}\n"
         message += f"Ping: {results['ping_ms']}ms\n"
         message += f"Download: {results['download_mbps']} Mbps\n"
