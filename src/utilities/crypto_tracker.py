@@ -99,7 +99,7 @@ def main():
     if args.json:
         print(json.dumps(prices, indent=2))
     else:
-        print(f"💰 Cryptocurrency Prices")
+        print(f"[MONEY] Cryptocurrency Prices")
         print(f"{'='*50}")
         
         for coin_id, data in prices.items():
@@ -107,7 +107,7 @@ def main():
             for currency, price in data.items():
                 if currency == "usd_24h_change":
                     change = price
-                    emoji = "📈" if change > 0 else "📉"
+                    emoji = "[UP]" if change > 0 else "[DOWN]"
                     print(f"  24h Change: {emoji} {change:.2f}%")
                 elif currency == "usd_market_cap":
                     print(f"  Market Cap: ${price:,.0f}")
